@@ -1,7 +1,7 @@
 ﻿using API_rest.Model;
 using System.Collections.Generic;
 
-namespace API_rest.Service
+namespace API_rest.Bussiness
 {
     public interface IPersonService
     {

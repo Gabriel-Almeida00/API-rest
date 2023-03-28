@@ -15,6 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_rest.Repository;
+using API_rest.Repository.Implementation;
 
 namespace API_rest
 {
@@ -39,6 +41,7 @@ namespace API_rest
             services.AddApiVersioning();
 
             services.AddScoped<IPersonService, PersonServiceImpl>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
 
             services.AddSwaggerGen(c =>
             {

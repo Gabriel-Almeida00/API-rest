@@ -35,3 +35,4 @@ C:\workspace-visual-studio-code\API-rest\API-rest\bin\Debug\net5.0\MySqlConnecto
 C:\workspace-visual-studio-code\API-rest\API-rest\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\workspace-visual-studio-code\API-rest\API-rest\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\workspace-visual-studio-code\API-rest\API-rest\bin\Debug\net5.0\Pomelo.JsonObject.dll
+C:\workspace-visual-studio-code\API-rest\API-rest\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll

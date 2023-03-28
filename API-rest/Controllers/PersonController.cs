@@ -6,7 +6,8 @@ using Microsoft.Extensions.Logging;
 
 namespace API_rest.Controllers
 {
-    [Route("[controller]")]
+    [ApiVersion("1")]
+    [Route("[controller]/v{version:apiVersion}")]
     [ApiController]
     public class PersonController : ControllerBase
     {

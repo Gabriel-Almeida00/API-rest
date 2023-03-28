@@ -36,7 +36,10 @@ namespace API_rest
             var connection = Configuration["MySqlConnection:MySqlConnectionString"];
             services.AddDbContext<MySqlContext>(options => options.UseMySql(connection));
 
+            services.AddApiVersioning();
+
             services.AddScoped<IPersonService, PersonServiceImpl>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_rest", Version = "v1" });

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0Bpn7a80pUGlmccI4wH83aM4V462N7uiFyJ2ZJ5q8jUnzTfEMyN3vZEwDlJp7sPG4atAKQC++wSpcw016usWjQ==",
+  "dgSpecHash": "MKpuUsuy2p0CEtSuOedH/6/3hMPdiwSJKBAn8/3xmCj1Q+EzeXCo/digVo03zvOAGLJQVNl3gaDKUEaaidAhOw==",
   "success": true,
   "projectFilePath": "C:\\workspace-visual-studio-code\\API-rest\\API-rest\\API-rest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\4.1.1\\microsoft.aspnetcore.mvc.versioning.4.1.1.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Gabriel\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

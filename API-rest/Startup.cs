@@ -49,6 +49,8 @@ namespace API_rest
 
             services.AddScoped<IPersonService, PersonServiceImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
+            services.AddScoped<IBookRepository, BookRepositoryImpl>();
+            services.AddScoped<BooksServiceImpl>();
 
             services.AddSwaggerGen(c =>
             {

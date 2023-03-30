@@ -1,15 +1,13 @@
-﻿using System;
+﻿using API_rest.Model.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API_rest.Model
 {
     [Table("books")]
-    public class Book
+    public class Book : BaseEntity
     {
-        [Column("id")]
-        public int id { get; set; }
-
         [Column("author")]
         public string author { get; set; }
 

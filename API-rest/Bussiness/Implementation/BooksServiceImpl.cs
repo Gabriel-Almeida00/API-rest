@@ -1,41 +1,41 @@
 ﻿using API_rest.Model;
-using API_rest.Repository;
+using API_rest.Repository.Generic;
 using System.Collections.Generic;
 
 namespace API_rest.Bussiness.Implementation
 {
     public class BooksServiceImpl
     {
-        private readonly IBookRepository bookRepository;
+        private readonly IRepository<Book> _repository;
 
-        public BooksServiceImpl(IBookRepository _bookRepository)
+        public BooksServiceImpl(IRepository<Book> repository)
         {
-            bookRepository = _bookRepository;
+            _repository = repository;
         }
 
         public List<Book> FindAll()
         {
-            return bookRepository.FindAll();
+            return _repository.FindAll();
         }
 
         public Book FindByID(int id)
         {
-            return bookRepository.FindById(id);
+            return _repository.FindByID(id);
         }
 
         public Book Create(Book book)
         {
-            return bookRepository.Create(book);
+            return _repository.Create(book);
         }
 
         public Book Update(Book book)
         {
-            return bookRepository.Update(book);
+            return _repository.Update(book);
         }
 
         public void Delete(int id)
         {
-            bookRepository.Delete(id);
+            _repository.Delete(id);
 
         }
     }

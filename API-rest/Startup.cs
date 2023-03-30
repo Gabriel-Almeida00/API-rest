@@ -13,6 +13,7 @@ using API_rest.Repository.Implementation;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using API_rest.Repository.Generic;
 
 namespace API_rest
 {
@@ -49,8 +50,8 @@ namespace API_rest
 
             services.AddScoped<IPersonService, PersonServiceImpl>();
             services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
-            services.AddScoped<IBookRepository, BookRepositoryImpl>();
             services.AddScoped<BooksServiceImpl>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
             services.AddSwaggerGen(c =>
             {

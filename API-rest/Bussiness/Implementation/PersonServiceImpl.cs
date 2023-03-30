@@ -1,42 +1,45 @@
-﻿using API_rest.Model;
-using API_rest.Model.Context;
-using API_rest.Repository;
+﻿using API_rest.Data.Converter.Implementation;
+using API_rest.Data.VO;
+using API_rest.Model;
 using API_rest.Repository.Generic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 
 namespace API_rest.Bussiness.Implementation
 {
     public class PersonServiceImpl : IPersonService
     {
         private readonly IRepository<Person> _repository;
+        private readonly PersonConverter _converter;
 
         public PersonServiceImpl(IRepository<Person> repository)
         {
             _repository = repository;
+            _converter = new PersonConverter();
         }
 
-        public List<Person> FindAll()
+        public List<PersonVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
         }
 
 
-        public Person FindByID(long id)
+        public PersonVO FindByID(long id)
         {
-            return _repository.FindByID(id);
+            return _converter.Parse(_repository.FindByID(id));
         }
 
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
-            return _repository.Create(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
         }
 
-        public Person Update(Person person)
+        public PersonVO Update(PersonVO person)
         {
-          return _repository.Update(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
 
         public void Delete(long id)

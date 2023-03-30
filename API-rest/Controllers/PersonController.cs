@@ -3,6 +3,7 @@ using API_rest.Bussiness;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using API_rest.Data.VO;
 
 namespace API_rest.Controllers
 {
@@ -40,18 +41,18 @@ namespace API_rest.Controllers
 
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO PersonVO)
         {
-            if (person == null) return BadRequest();
-            return Ok(_personService.Create(person));
+            if (PersonVO == null) return BadRequest();
+            return Ok(_personService.Create(PersonVO));
         }
 
   
         [HttpPut]
-        public IActionResult Put([FromBody] Person person)
+        public IActionResult Put([FromBody] PersonVO PersonVO)
         {
-            if (person == null) return BadRequest();
-            return Ok(_personService.Update(person));
+            if (PersonVO == null) return BadRequest();
+            return Ok(_personService.Update(PersonVO));
         }
 
         [HttpDelete("{id}")]

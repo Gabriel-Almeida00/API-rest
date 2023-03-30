@@ -1,5 +1,6 @@
 ﻿using API_rest.Bussiness;
 using API_rest.Bussiness.Implementation;
+using API_rest.Data.VO;
 using API_rest.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +39,7 @@ namespace API_rest.Controllers
 
 
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_booksService.Create(book));
@@ -46,7 +47,7 @@ namespace API_rest.Controllers
 
 
         [HttpPut]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return Ok(_booksService.Update(book));

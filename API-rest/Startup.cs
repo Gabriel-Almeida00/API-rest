@@ -8,8 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using API_rest.Repository;
-using API_rest.Repository.Implementation;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -49,7 +47,6 @@ namespace API_rest
             services.AddApiVersioning();
 
             services.AddScoped<IPersonService, PersonServiceImpl>();
-            services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
             services.AddScoped<BooksServiceImpl>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 

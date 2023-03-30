@@ -1,6 +1,7 @@
 ﻿using API_rest.Model;
 using API_rest.Model.Context;
 using API_rest.Repository;
+using API_rest.Repository.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace API_rest.Bussiness.Implementation
 {
     public class PersonServiceImpl : IPersonService
     {
-        private readonly IPersonRepository _repository;
+        private readonly IRepository<Person> _repository;
 
-        public PersonServiceImpl(IPersonRepository repository)
+        public PersonServiceImpl(IRepository<Person> repository)
         {
             _repository = repository;
         }

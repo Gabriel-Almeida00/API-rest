@@ -14,6 +14,7 @@ namespace API_rest.Bussiness.Implementation
         public BooksServiceImpl(IRepository<Book> repository)
         {
             _repository = repository;
+            _converter = new BookConverter();
         }
 
         public List<BookVO> FindAll()

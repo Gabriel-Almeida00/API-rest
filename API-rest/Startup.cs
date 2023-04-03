@@ -13,6 +13,9 @@ using System;
 using System.Collections.Generic;
 using API_rest.Repository.Generic;
 using System.Net.Http.Headers;
+using API_rest.HyperMedia;
+using API_rest.HyperMedia.Filters;
+using API_rest.HyperMedia.Enricher;
 
 namespace API_rest
 {
@@ -57,6 +60,11 @@ namespace API_rest
             })
                 .AddXmlSerializerFormatters();
 
+            var filterOptions = new HyperMediaFilterOptions();
+            filterOptions.ContentRespponseEnricherList.Add(new PersonEnricher());
+
+            services.AddSingleton(filterOptions);
+
             services.AddApiVersioning();
 
             services.AddScoped<IPersonService, PersonServiceImpl>();
@@ -88,6 +96,7 @@ namespace API_rest
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
 

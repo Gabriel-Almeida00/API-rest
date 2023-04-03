@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using API_rest.Data.VO;
+using API_rest.HyperMedia.Filters;
 
 namespace API_rest.Controllers
 {
@@ -25,6 +26,7 @@ namespace API_rest.Controllers
 
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_personService.FindAll());
@@ -32,6 +34,7 @@ namespace API_rest.Controllers
 
     
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
             var person = _personService.FindByID(id);
@@ -41,6 +44,7 @@ namespace API_rest.Controllers
 
 
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PersonVO PersonVO)
         {
             if (PersonVO == null) return BadRequest();
@@ -49,6 +53,7 @@ namespace API_rest.Controllers
 
   
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PersonVO PersonVO)
         {
             if (PersonVO == null) return BadRequest();

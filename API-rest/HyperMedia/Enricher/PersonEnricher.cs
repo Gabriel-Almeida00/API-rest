@@ -12,7 +12,7 @@ namespace API_rest.HyperMedia.Enricher
         private readonly object _locker = new object();
         protected override Task EnrichModel(PersonVO content, IUrlHelper urlHelper)
         {
-            var path = "persons/v1";
+            var path = "person/v1";
             string link = GetLink(content.Id, urlHelper, path);
 
             content.Links.Add(new HyperMediaLink()

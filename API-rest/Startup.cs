@@ -16,6 +16,8 @@ using System.Net.Http.Headers;
 using API_rest.HyperMedia;
 using API_rest.HyperMedia.Filters;
 using API_rest.HyperMedia.Enricher;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace API_rest
 {
@@ -74,7 +76,17 @@ namespace API_rest
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_rest", Version = "v1" });
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {   Title = "API_rest",
+                        Version = "v1",
+                        Description = "API REST developed in course",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Gabriel Almeida",
+                            Url = new Uri("https://github.com/Gabriel-Almeida00")
+                        }
+                    });
             });
         }
 
@@ -84,13 +96,18 @@ namespace API_rest
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API_rest v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API_rest v1"));
+
+            var options = new RewriteOptions();
+            options.AddRedirect("^$", "swagger");
+            app.UseRewriter(options);
 
             app.UseAuthorization();
 

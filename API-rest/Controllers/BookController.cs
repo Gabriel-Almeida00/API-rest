@@ -1,6 +1,7 @@
 ﻿using API_rest.Bussiness;
 using API_rest.Bussiness.Implementation;
 using API_rest.Data.VO;
+using API_rest.HyperMedia.Filters;
 using API_rest.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,7 @@ namespace API_rest.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_booksService.FindAll());
@@ -30,6 +32,7 @@ namespace API_rest.Controllers
 
 
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
             var book = _booksService.FindByID(id);
@@ -39,6 +42,7 @@ namespace API_rest.Controllers
 
 
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
@@ -47,6 +51,7 @@ namespace API_rest.Controllers
 
 
         [HttpPut]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();

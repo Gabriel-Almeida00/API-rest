@@ -62,6 +62,7 @@ namespace API_rest
 
             var filterOptions = new HyperMediaFilterOptions();
             filterOptions.ContentRespponseEnricherList.Add(new PersonEnricher());
+            filterOptions.ContentRespponseEnricherList.Add(new BookEnricher());
 
             services.AddSingleton(filterOptions);
 
